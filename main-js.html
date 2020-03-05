@@ -1,0 +1,19 @@
+<script>
+    const firstName = document.getElementById("firstName");
+    const lastName = document.getElementById("lastName");
+    const application = document.getElementById("application");
+
+    document.getElementById("btn").addEventListener("click", function save() {
+        const userInfo = {
+            firstName: firstName.value,
+            lastName: lastName.value,
+            application: application.value
+        };
+
+        firstName.value = "";
+        lastName.value = "";
+        application.value = "";
+
+        google.script.run.userClicked(userInfo);
+    })
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <?!= include("main-css"); ?>
+</head>
+
+<body>
+  <h1>Hello !!!</h1>
+  <div class="form-row">
+    <label>First Name </label> <input type="text" id="firstName">
+  </div>
+  <div class="form-row">
+    <label>Last Name </label> <input type="text" id="lastName">
+  </div>
+  <div class="form-row">
+    <label>Application </label>
+    <select id="application">
+      <option>Sheet</option>
+      <option>Excel</option>
+    </select>
+  </div>
+  <div>
+    <button id="btn">Save</button>
+  </div>
+
+  <?!= include("main-js"); ?>
+</body>
+
+</html>
