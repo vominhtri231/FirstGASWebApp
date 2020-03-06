@@ -4,7 +4,7 @@
     const application = document.getElementById("application");
 
     document.getElementById("btn").addEventListener("click", function save() {
-        const userInfo = {
+        const user = {
             firstName: firstName.value,
             lastName: lastName.value,
             application: application.value
@@ -14,6 +14,6 @@
         lastName.value = "";
         application.value = "";
 
-        google.script.run.userClicked(userInfo);
+        google.script.run.saveUser(user);
     })
 </script>

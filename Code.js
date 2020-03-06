@@ -1,14 +1,26 @@
-
-const dataSheet = SpreadsheetApp.openById("1TnRoyQvTDG6VY1H1coAgZ6MxR-cTsdPIqz5XdUOG2to").getSheetByName("Data");
+const rounter = {
+  "register": loadRegister,
+  "user": loadUser
+}
 
 function doGet(e) {
-  return HtmlService.createTemplateFromFile("main").evaluate();
+  const loadFunction = rounter[e.parameters.v];
+  if (loadFunction) {
+    return loadFunction();
+  }
+  return loadWellcome();
 }
 
-function userClicked(userInfo) {
-  dataSheet.appendRow([userInfo.firstName, userInfo.lastName, userInfo.application, new Date()]);
+function loadRegister() {
+  return HtmlService.createTemplateFromFile("register").evaluate();
 }
 
-function include(fileName) {
-  return HtmlService.createHtmlOutputFromFile(fileName).getContent();
+function loadUser() {
+  const userTemplate = HtmlService.createTemplateFromFile("user");
+  userTemplate.users = getUsers();
+  return userTemplate.evaluate();
+}
+
+function loadWellcome() {
+  return HtmlService.createTemplateFromFile("wellcome").evaluate();
 }

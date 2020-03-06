@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+    <?!= include("page-css"); ?>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 600px;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+        }
+
+        th {
+            background-color: #4D5;
+            color: #FFF
+        }
+
+        tr:nth-child(even) {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <? const scriptUrl = getScriptUrl() ?>
+    <div class="topnav">
+        <a href='<?= scriptUrl ?>'>Wellcome</a>
+        <a href='<?= scriptUrl ?>?v=register'>Register</a>
+        <a class="active" href='<?= scriptUrl ?>?v=user'>User</a>
+    </div>
+    <h1>User list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Application</th>
+            </tr>
+        </thead>
+        <tbody>
+            <? users.forEach(user => {  ?>
+            <tr>
+                <td><?= user.firstName?></td>
+                <td><?= user.lastName ?></td>
+                <td><?= user.application ?></td>
+            </tr>
+            <? }) ?>
+        </tbody>
+    </table>
+</body>
+
+</html>

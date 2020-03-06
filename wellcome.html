@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+    <?!= include("page-css"); ?>
+</head>
+
+<body>
+    <? const scriptUrl = getScriptUrl() ?>
+    <div class="topnav">
+        <a class="active" href='<?= scriptUrl ?>'>Wellcome</a>
+        <a href='<?= scriptUrl ?>?v=register'>Register</a>
+        <a href='<?= scriptUrl ?>?v=user'>User</a>
+    </div>
+    Wellcome!!!
+</body>
+
+</html>
