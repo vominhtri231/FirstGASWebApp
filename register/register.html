@@ -3,21 +3,12 @@
 
 <head>
   <base target="_top">
-  <?!= include("page-css"); ?>
-  <style>
-    .form-row {
-      margin-bottom: 20px;
-    }
-  </style>
+  <?!= include("common/page-css"); ?>
+  <?!= include("register/register-css"); ?>
 </head>
 
 <body>
-  <? const scriptUrl = getScriptUrl() ?>
-  <div class="topnav">
-    <a href='<?= scriptUrl ?>'>Wellcome</a>
-    <a class="active" href='<?= scriptUrl ?>?v=register'>Register</a>
-    <a href='<?= scriptUrl ?>?v=user'>User</a>
-  </div>
+  <?!= includeNav("register"); ?>
 
   <h1>Register!!!</h1>
   <div class="form-row">
@@ -42,7 +33,7 @@
     <button id="btn">Save</button>
   </div>
 
-  <?!= include("register-js"); ?>
+  <?!= include("register/register-js"); ?>
 </body>
 
 </html>

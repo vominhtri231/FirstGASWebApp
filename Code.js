@@ -12,17 +12,13 @@ function doGet(e) {
 }
 
 function loadRegister() {
-  const registerTemplate = HtmlService.createTemplateFromFile("register");
-  registerTemplate.applicationNames = getApplicationNames();
-  return registerTemplate.evaluate();
+  return render("register/register", { applicationNames: getApplicationNames() });
 }
 
 function loadUser() {
-  const userTemplate = HtmlService.createTemplateFromFile("user");
-  userTemplate.users = getUsers();
-  return userTemplate.evaluate();
+  return render("user/user", { users: getUsers() });
 }
 
 function loadWellcome() {
-  return HtmlService.createTemplateFromFile("wellcome").evaluate();
+  return render("wellcome/wellcome", {});
 }

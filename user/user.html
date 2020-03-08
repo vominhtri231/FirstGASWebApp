@@ -3,36 +3,12 @@
 
 <head>
     <base target="_top">
-    <?!= include("page-css"); ?>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 600px;
-        }
-
-        th,
-        td {
-            border: 1px solid #000;
-        }
-
-        th {
-            background-color: #4D5;
-            color: #FFF
-        }
-
-        tr:nth-child(even) {
-            background-color: #ccc;
-        }
-    </style>
+    <?!= include("common/page-css"); ?>
+    <?!= include("user/user-css"); ?>
 </head>
 
 <body>
-    <? const scriptUrl = getScriptUrl() ?>
-    <div class="topnav">
-        <a href='<?= scriptUrl ?>'>Wellcome</a>
-        <a href='<?= scriptUrl ?>?v=register'>Register</a>
-        <a class="active" href='<?= scriptUrl ?>?v=user'>User</a>
-    </div>
+    <?!= includeNav("user"); ?>
     <h1>User list</h1>
 
     <table>
