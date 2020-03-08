@@ -29,9 +29,14 @@
   <div class="form-row">
     <label>Application </label>
     <select id="application">
-      <option>Sheet</option>
-      <option>Excel</option>
+      <? applicationNames.forEach(applicationName=>{ ?>
+      <option><?= applicationName ?></option>
+      <? }); ?>
     </select>
+  </div>
+  <div class="form-row">
+    <label>Branch </label>
+    <input id="branch" type="text" readonly />
   </div>
   <div>
     <button id="btn">Save</button>

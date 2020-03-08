@@ -1,19 +1,39 @@
 <script>
-    const firstName = document.getElementById("firstName");
-    const lastName = document.getElementById("lastName");
-    const application = document.getElementById("application");
+    const firstNameField = document.getElementById("firstName");
+    const lastNameField = document.getElementById("lastName");
+    const applicationSelection = document.getElementById("application");
+    const branchField = document.getElementById("branch");
+    const saveButton = document.getElementById("btn");
 
-    document.getElementById("btn").addEventListener("click", function save() {
+    saveButton.addEventListener("click", () => {
         const user = {
-            firstName: firstName.value,
-            lastName: lastName.value,
-            application: application.value
+            firstName: firstNameField.value,
+            lastName: lastNameField.value,
+            application: applicationSelection.value
         };
 
-        firstName.value = "";
-        lastName.value = "";
-        application.value = "";
+        google.script.run
+            .withSuccessHandler(() => {
+                firstNameField.value = "";
+                lastNameField.value = "";
+                applicationSelection.value = "";
+                alert("save successfully");
+            })
+            .withFailureHandler(failureHandler)
+            .saveUser(user);
+    });
 
-        google.script.run.saveUser(user);
-    })
+    applicationSelection.addEventListener("change", () => {
+        const applicationName = applicationSelection.value;
+        google.script.run
+            .withSuccessHandler((branch) => {
+                branchField.value = branch;
+            })
+            .withFailureHandler(failureHandler)
+            .getMatchingBranch(applicationName);
+    });
+
+    const failureHandler = (e) => {
+        console.log("Error : " + e);
+    } 
 </script>

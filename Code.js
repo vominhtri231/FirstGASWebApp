@@ -12,7 +12,9 @@ function doGet(e) {
 }
 
 function loadRegister() {
-  return HtmlService.createTemplateFromFile("register").evaluate();
+  const registerTemplate = HtmlService.createTemplateFromFile("register");
+  registerTemplate.applicationNames = getApplicationNames();
+  return registerTemplate.evaluate();
 }
 
 function loadUser() {
